@@ -1,57 +1,46 @@
-<div>
+<ng-template #templateModal>
+  <div class="modal-header">
+      <h4 class="modal-title pull-left">Modal</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+  <div class="modal-body">
+      this is body
+  </div>
+</ng-template>
+
+<!-- <div>
   <div>
-    <form [formGroup]="createToDoForm">
+    <form [formGroup]="createToDoForm" (ngSubmit)="onSubmit()">
       <div class="col-md-12">
         <label>Name</label>
         <input id="name" [formControlName]="'name'" class="form-control" type="text" />
-        <small *ngIf="(createToDoForm.get('name').invalid
-                                            && createToDoForm.get('name').touched)" class="form-text text-muted">
-          <span class="form-text text-muted">
-            Invalid name
-          </span>
+        <small *ngIf="(createToDoForm.get('name').invalid && createToDoForm.get('name').touched)">
+          <span class="alert-danger"> Please provide valid Data </span>
         </small>
       </div>
       <div class="col-md-12">
         <label>Description</label>
-        <input [formControlName]="'description'" class="form-control" type="text">
+        <input [formControlName]="'description'" class="form-control" type="text" required>
+        <small *ngIf="(createToDoForm.get('description').invalid && createToDoForm.get('description').touched)">
+          <span class="alert-danger"> Please provide valid Data </span>
+        </small>
       </div>
       <div class="col-md-12">
         <label>Status</label>
-        <div >
-          <input type="radio"[formControlName]="'status'" name="status" value="true"> Not Complete
-          <br>
-          <input type="radio" [formControlName]="'status'"
-           name="status" value="false"> Complete
-          <br>
+        <div>
+          <div>
+            <input id="radio1" type="radio" [formControlName]="'status'" name="status" value="true" required>
+            <label for="radio1"> Not Complete </label>
+          </div>
+          <div>
+            <input id="radio2" type="radio" [formControlName]="'status'" name="status" value="false" required>
+            <label for="radio2">Complete</label>
+          </div>
         </div>
-        <button type="button" class="btn btn-primary">
-          Add ToDo
-        </button>
+        <button type="btn btn-primary" class="btn btn-primary"> Add ToDo </button>
       </div>
     </form>
   </div>
-</div>
-
-<!-- Modal -->
-<!-- <div *ngIf="isModalShown" bsModal #Modal="bs-modal"
- class="modal fade" tabindex="-1" id="myModal"
- role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
+</div>  -->

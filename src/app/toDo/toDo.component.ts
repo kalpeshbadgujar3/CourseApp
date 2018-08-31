@@ -1,4 +1,4 @@
-import { Component } from '@angular/core'
+import { Component,TemplateRef } from '@angular/core';
 
 @Component({
     selector:'app-toDo',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core'
     styleUrls:['./toDo.component.css']
 })
 export class ToDoComponent{
-
+    constructor() {
+    }
 }

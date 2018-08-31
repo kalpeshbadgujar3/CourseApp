@@ -7,9 +7,17 @@ import { HeaderComponent } from './header/header.component';
 import { ToDoComponent } from './toDo/toDo.component';
 import { AddToDoComponent } from './toDo/add/add.component';
 import { ToDoListComponent } from './toDo/list/list.component';
-import { ModalModule } from "ngx-bootstrap";
+import { ModalModule } from "ngx-bootstrap/modal";
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome';
 import { CommonModule } from '@angular/common';
+
+import { Routes, RouterModule } from '@angular/router';
+
+const appRoutes:Routes = [
+  { path:'', component: ToDoListComponent },
+  { path:'todo/Add', component: AddToDoComponent },
+  { path:'todo/Edit', component: AddToDoComponent }
+]
 
 @NgModule({
   declarations: [
@@ -25,9 +33,10 @@ import { CommonModule } from '@angular/common';
     ReactiveFormsModule,
     Angular2FontawesomeModule,
     ModalModule.forRoot(),
-    CommonModule
+    CommonModule,
+    RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [ ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
